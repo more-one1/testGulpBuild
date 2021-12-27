@@ -7,7 +7,9 @@ const cleanCSS = require('gulp-clean-css')
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const concat = require('gulp-concat')
+const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
+const autoPrefixer = require('gulp-autoprefixer')
 
 //Пути к изначальным файлам (src) и файлам назначения (dist)
 const paths = {
@@ -30,7 +32,12 @@ function clean() {
 function styles() {
 	return gulp.src(paths.styles.src)
 		.pipe(less())
-		.pipe(cleanCSS())
+		.pipe(autoprefixer({
+			cascade: false
+		}))
+		.pipe(cleanCSS({
+			level: 2
+		}))
 		.pipe(rename({
 			basename: 'main',
 			suffix: '.min'
@@ -43,7 +50,9 @@ function scripts() {
 	return gulp.src(paths.scripts.src, {
 		sourcemaps: true
 	})
-	.pipe(babel())
+	.pipe(babel({
+		presets: ['@babel/env']
+	}))
 	.pipe(uglify())
 	.pipe(concat('main.min.js'))
 	.pipe(gulp.dest(paths.scripts.dest))
