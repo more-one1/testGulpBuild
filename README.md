@@ -4,7 +4,7 @@
 
 ## Структура каталогов для размещения файлов стилей и скриптов:
 
-> ./src/styles/\*\*/\*.less
+> ./src/styles/\*\*/\*.less  
 > ./src/scripts/\*\*/\*.js
 
 ## Инструкция:
@@ -16,7 +16,7 @@
 
 ## Ссылки
 
-[Сборка проекта на Gulp 4](https://github.com/morphIsmail/gulp_build_3)
+[Сборка проекта на Gulp 4](https://github.com/morphIsmail/gulp_build_3)  
 [Документация Gulp на русском языке](https://webdesign-master.ru/blog/docs/gulp-documentation.html)
 
 ## Установленные npm пакеты
